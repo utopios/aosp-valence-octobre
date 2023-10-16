@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private ServiceConnection mConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName className, IBinder service) {
-            mService = IMyService.Stub.asInterface(service);
+            mService = (IMyService) ((MyService.MyBinder)service).getService();
             try {
                 String message = mService.getBinderMessage();
                 Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
@@ -46,5 +46,11 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         Intent intent = new Intent(this, MyService.class);
         bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unbindService(mConnection);
     }
 }
