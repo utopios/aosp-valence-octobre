@@ -1,0 +1,6 @@
+android_app {
+    name: "mon_application",
+    srcs : ["src/**/*.java"],
+    java_library:[
+    ],
+}
