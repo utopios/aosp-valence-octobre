@@ -15,3 +15,11 @@ cd AOSP
 repo init -u https://android.googlesource.com/platform/manifest -b android-10.0.0_r1
 repo sync -j8 -c
 ```
+
+```go
+# choisir la plateform cible
+lunch
+# m # => build de la totalité de l'os
+# mm => uniquement le module current
+# mmm <path_to_module> 
+```
