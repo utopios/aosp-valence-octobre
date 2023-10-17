@@ -23,3 +23,54 @@ lunch
 # mm => uniquement le module current
 # mmm <path_to_module> 
 ```
+
+
+## Exemple d'utilisation de NotificationManagerService
+
+```java
+NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+        .setSmallIcon(R.drawable.notification_icon)
+        .setContentTitle("Ma notification")
+        .setContentText("Bonjour depuis AOSP!")
+        .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+notificationManager.notify(NOTIFICATION_ID, builder.build());
+```
+
+
+## Exemple d'utilisation de connectivity Manager pour vérifier la connectivité réseau
+
+```java
+ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+```
+
+## Exemple de communication entre application et un serviceManager 
+
+#### Afficher les paramètres wifit
+```java
+Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS)
+startActivity(intent)
+```
+
+### Emettre un appel
+
+```java
+Intent intet = new Intent(Intent.ACTION_CALL);
+intent.setData(Uri.parse("tel:0101010101"));
+startActivity(intent)
+```
+
+### Package Manager
+
+```java
+PackageManager pm = getPackageManager();
+try {
+    pm.getPackageInfo("com.example.appname", PackageManager.GET_ACTIVITIES);
+    // L'application est installée
+} catch (PackageManager.NameNotFoundException e) {
+    // L'application n'est pas installée
+}
+```
