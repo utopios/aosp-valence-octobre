@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <permission android:name="com.example.serviceapp.service.PERMISSION_ACCESS_SERVICE" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,14 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Serviceapp"
         tools:targetApi="31">
+        
         <service
             android:name=".service.MathService"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"
+            android:permission="com.example.serviceapp.service.PERMISSION_ACCESS_SERVICE"
+            >
             <intent-filter>
                 <action android:name="com.example.serviceapp.service.MATH_OPERATION"></action>
             </intent-filter>
         </service>
+
+
 
         <activity
             android:name=".MainActivity"
@@ -34,6 +40,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-    </application>
 
+    </application>
+    <!--<uses-permission android:name="com.example.serviceapp.service.PERMISSION_ACCESS_SERVICE"></uses-permission>-->
 </manifest>
