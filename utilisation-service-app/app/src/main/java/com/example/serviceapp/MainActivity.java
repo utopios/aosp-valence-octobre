@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         //Intent intent = new Intent(this, MathService.class);
         Intent intent = new Intent("com.example.serviceapp.service.MATH_OPERATION");
         intent.setPackage("com.example.serviceapp");
+        
         bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
 
         EditText editText1 = (EditText) findViewById(R.id.num1);
