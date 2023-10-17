@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             int number2 = Integer.parseInt(editText2.getText().toString());
             try {
                 int resultService = mathService.addition(number2, number1);
-                result.setText(resultService);
+                result.setText(String.valueOf(resultService));
             }catch (RemoteException ex) {
                 result.setText(ex.getMessage());
             }
