@@ -1,0 +1,6 @@
+package com.example.hardware.light@1.0;
+
+interface ILightManager {
+    setBrightness(float value);
+    getBrightness(): float;
+};
