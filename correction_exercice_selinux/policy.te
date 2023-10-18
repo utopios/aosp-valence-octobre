@@ -1,0 +1,8 @@
+type customapp_exec_t, exec_type, file_type;
+
+type customapp_t, domain;
+type_transition parent_process_type customapp_exec_t:process customapp_t;
+type customapp_config_t, file_type;
+
+allow customapp_t customapp_config_t:file {read write};
+allow customapp_t customapp_config_t:dir {search add_name remove_name};

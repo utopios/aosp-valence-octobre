@@ -1,0 +1,2 @@
+/path/to/customapp(/.*)? u:object_r:customapp_exec_t:s0;
+/data/customapp/config(/.*)? u:object_r:customapp_config_t:s0;
