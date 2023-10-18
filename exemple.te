@@ -1,0 +1,4 @@
+type domain1_t, domain;
+type domain2_t, domain;
+
+allow domain1_t domain2_t:file {read write};
