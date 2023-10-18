@@ -74,3 +74,19 @@ try {
     // L'application n'est pas installée
 }
 ```
+
+```java
+import android.hardware.bluetooth@1.0;
+
+IBluetooth bluetooth = IBluetooth.getService()
+```
+
+
+## Commande fastboot
+
+```bash
+fastboot flash [partition] [filename.img]
+fastboot erase [parition]
+fastboot getvar all
+fastboot oem unlock
+```
